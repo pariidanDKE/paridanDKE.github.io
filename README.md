@@ -1,12 +1,12 @@
-# paridanDKE.github.io
+# pariidandke.github.io
 
 Personal projects site for Dan Parii, published with GitHub Pages.
 
 ## How it works
 
-This repo is named `paridanDKE.github.io`, which makes it a GitHub Pages
+This repo is named `pariidandke.github.io`, which makes it a GitHub Pages
 **user site**: GitHub automatically publishes the root of the `main` branch to
-**https://paridanDKE.github.io**. No build step — it's plain static files.
+**https://pariidandke.github.io**. No build step — it's plain static files.
 
 - `index.html` — the single-page site (header, projects, publications)
 - `style.css` — styles
