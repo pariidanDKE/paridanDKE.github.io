@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TuneMap — Dan Parii</title>
+  <meta name="description" content="TuneMap: knowledge graphs + adapter serving. A project by Dan Parii." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="crt">
+  <div class="scanlines" aria-hidden="true"></div>
+
+<main class="project">
+
+  <nav class="backnav">
+    <a href="../index.html"><span class="prompt">pariidan@portfolio:~/projects$</span> cd ..</a>
+  </nav>
+
+  <header class="proj-head">
+    <h1>TuneMap</h1>
+    <p class="proj-beat"># knowledge graphs + adapter serving</p>
+    
+    <ul class="tags">
+      <li>Knowledge Graphs</li>
+      <li>Multi-Agent Systems</li>
+      <li>vLLM</li>
+      <li>Fine-Tuning</li>
+    </ul>
+    <div class="links"><a class="btn" href="https://github.com/pariidanDKE/TuneMap">&gt; view on github</a></div>
+  </header>
+
+  <figure class="hero wide">
+    <img src="../assets/tunemap/architecture.png" alt="System architecture." loading="lazy" />
+    <figcaption>System architecture.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <p>TuneMap turns my Apple Music library into a queryable knowledge graph. Ask a question in plain English and get a natural-language answer plus an interactive visualisation of the exact subgraph behind it. It started as a way to explore my own music taste and ended up teaching me how agents can lean on knowledge graphs.</p>
+    <p>It&#x27;s a multi-agent setup: a main agent handles the conversation, and when a query needs translating into a graph query it calls a specialist “composer” agent — a model I fine-tuned for natural-language-to-Cypher and serve as a hot-swappable LoRA adapter in vLLM. So the system only spins up the specialist when it actually needs it, instead of paying for it on every call.</p>
+  </section>
+
+  <section class="gallery">
+    <figure class="wide">
+      <img src="../assets/tunemap/graph-query.png" alt="A natural-language question rendered as the exact subgraph behind the answer." loading="lazy" />
+      <figcaption>A natural-language question rendered as the exact subgraph behind the answer.</figcaption>
+    </figure>
+  </section>
+
+  <section class="learned">
+    <h2><span class="comment">// what I learned</span></h2>
+    <ul>
+      <li>Agents can lean on knowledge graphs: translate natural language to Cypher with a specialist model instead of forcing one model to do everything.</li>
+      <li>Serving the fine-tuned composer as a hot-swappable LoRA adapter in vLLM means you only pay for the specialist when a query actually needs it.</li>
+      <li>Showing the exact subgraph behind an answer turns a black-box response into something you can inspect and trust.</li>
+    </ul>
+  </section>
+
+  <footer class="proj-foot">
+    <a href="../index.html"><span class="prompt">pariidan@portfolio:~/projects$</span> cd .. <span class="blink">_</span></a>
+  </footer>
+</main>
+</body>
+</html>

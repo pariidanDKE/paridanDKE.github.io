@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hermes Curator — Dan Parii</title>
+  <meta name="description" content="Hermes Curator: production agent orchestration + safety. A project by Dan Parii." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="crt">
+  <div class="scanlines" aria-hidden="true"></div>
+
+<main class="project">
+
+  <nav class="backnav">
+    <a href="../index.html"><span class="prompt">pariidan@portfolio:~/projects$</span> cd ..</a>
+  </nav>
+
+  <header class="proj-head">
+    <h1>Hermes Curator</h1>
+    <p class="proj-beat"># production agent orchestration + safety</p>
+    
+    <ul class="tags">
+      <li>Multi-Agent Systems</li>
+      <li>Agent Orchestration</li>
+      <li>Local LLMs / SLMs</li>
+      <li>Playwright</li>
+      <li>Context Engineering</li>
+    </ul>
+    <div class="links"><a class="btn" href="https://github.com/pariidanDKE/HermesYoutubeCurator">&gt; view on github</a></div>
+  </header>
+
+  <figure class="hero tall">
+    <img src="../assets/hermes-curator/digest.jpg" alt="A generated digest of recommended videos." loading="lazy" />
+    <figcaption>A generated digest of recommended videos.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <p>A system for reading, documenting, and evolving data from the web, built on the Hermes harness — an open-source agent framework aimed at local SLMs, with a lot of built-in hooks and guardrails. The principle is the interesting part: an orchestrator agent owns the high-level loop, anything potentially unsafe gets routed to tightly guarded subagents, and a dedicated subagent files everything into a persistent, interlinked markdown knowledge base using Hermes&#x27; llm-wiki skill (Karpathy&#x27;s LLM Wiki pattern).</p>
+    <p>That last bit means the curated knowledge compounds over time and stays cross-referenced, instead of being re-derived from scratch the way plain RAG would. The subagent split doubles as a security boundary and a context-engineering trick, keeping the main agent&#x27;s context clean and focused.</p>
+    <p>I built it out as a personal YouTube curator: a cron job scrapes my own recommendations and watch history with Playwright (YouTube offers no API for that personal data), the orchestrator documents and evolves the picks over time, and a Telegram gateway makes it easy to interact with day to day.</p>
+  </section>
+
+  <section class="gallery">
+    <figure class="tall">
+      <img src="../assets/hermes-curator/feedback.jpg" alt="Adding an interest from feedback to evolve future picks." loading="lazy" />
+      <figcaption>Adding an interest from feedback to evolve future picks.</figcaption>
+    </figure>
+  </section>
+
+  <section class="learned">
+    <h2><span class="comment">// what I learned</span></h2>
+    <ul>
+      <li>Splitting agents is both a security boundary and a context-engineering trick: route unsafe work to guarded subagents, keep the orchestrator&#x27;s context clean.</li>
+      <li>An interlinked markdown knowledge base makes curated knowledge compound and stay cross-referenced, instead of being re-derived like plain RAG.</li>
+      <li>When there&#x27;s no API for the data you need, a Playwright scraper on a cron is a pragmatic way in.</li>
+    </ul>
+  </section>
+
+  <footer class="proj-foot">
+    <a href="../index.html"><span class="prompt">pariidan@portfolio:~/projects$</span> cd .. <span class="blink">_</span></a>
+  </footer>
+</main>
+</body>
+</html>
