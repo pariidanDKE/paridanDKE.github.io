@@ -95,6 +95,7 @@ a:hover { color: #fff; }
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 14%;
   border: 1px solid var(--border-bright);
   box-shadow: 0 0 12px rgba(54, 227, 107, 0.18);
   filter: saturate(0.9);
