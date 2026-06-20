@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RoLLM — Dan Parii</title>
+  <title>RoLLM · Dan Parii</title>
   <meta name="description" content="RoLLM: a published model + low-level optimization. A project by Dan Parii." />
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -38,7 +38,7 @@
 
   <section class="prose">
     <p>My first published model, now live under OpenLLM-Ro, the first open-source initiative for Romanian LLMs. It&#x27;s a 4-bit, 1B Llama taught Romanian through a constrained continual-pretraining run, with both the model and the recipe built for efficient on-device inference.</p>
-    <p>The recipe is an optimized QLoRA run on Unsloth, where I went deep on the levers that actually move a small model: sequence packing, LoRA rank, and data mix. The experiment I cared about most was whether higher educational-quality data makes a better model — and it did: language understanding improved across the board, while reasoning- and knowledge-heavy tasks gained the most from the filtered data.</p>
+    <p>The recipe is an optimized QLoRA run on Unsloth, where I went deep on the levers that actually move a small model: sequence packing, LoRA rank, and data mix. The experiment I cared about most was whether higher educational-quality data makes a better model, and it did: language understanding improved across the board, while reasoning- and knowledge-heavy tasks gained the most from the filtered data.</p>
     <p>Getting there meant subclassing large parts of the Transformers library to shape the exact training loop I wanted, and profiling CUDA kernels with Nsight to keep it fast.</p>
   </section>
 
@@ -53,7 +53,7 @@
     <h2><span class="comment">// what I learned</span></h2>
     <ul>
       <li>Data quality compounds: filtering for educational-quality data lifted language understanding everywhere, with the biggest gains on reasoning- and knowledge-heavy tasks.</li>
-      <li>The levers that move a small model are unglamorous — sequence packing, LoRA rank and data mix did more than any clever trick.</li>
+      <li>The levers that move a small model are unglamorous: sequence packing, LoRA rank and data mix did more than any clever trick.</li>
       <li>To get the exact training loop I wanted I had to subclass large parts of Transformers, and profile CUDA kernels with Nsight to keep it fast.</li>
     </ul>
   </section>

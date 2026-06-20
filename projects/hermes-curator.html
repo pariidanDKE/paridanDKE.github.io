@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hermes Curator — Dan Parii</title>
+  <title>Hermes Curator · Dan Parii</title>
   <meta name="description" content="Hermes Curator: production agent orchestration + safety. A project by Dan Parii." />
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -36,7 +36,7 @@
   </figure>
 
   <section class="prose">
-    <p>A system for reading, documenting, and evolving data from the web, built on the Hermes harness — an open-source agent framework aimed at local SLMs, with a lot of built-in hooks and guardrails. The principle is the interesting part: an orchestrator agent owns the high-level loop, anything potentially unsafe gets routed to tightly guarded subagents, and a dedicated subagent files everything into a persistent, interlinked markdown knowledge base using Hermes&#x27; llm-wiki skill (Karpathy&#x27;s LLM Wiki pattern).</p>
+    <p>A system for reading, documenting, and evolving data from the web, built on the Hermes harness, an open-source agent framework aimed at local SLMs, with a lot of built-in hooks and guardrails. The principle is the interesting part: an orchestrator agent owns the high-level loop, anything potentially unsafe gets routed to tightly guarded subagents, and a dedicated subagent files everything into a persistent, interlinked markdown knowledge base using Hermes&#x27; llm-wiki skill (Karpathy&#x27;s LLM Wiki pattern).</p>
     <p>That last bit means the curated knowledge compounds over time and stays cross-referenced, instead of being re-derived from scratch the way plain RAG would. The subagent split doubles as a security boundary and a context-engineering trick, keeping the main agent&#x27;s context clean and focused.</p>
     <p>I built it out as a personal YouTube curator: a cron job scrapes my own recommendations and watch history with Playwright (YouTube offers no API for that personal data), the orchestrator documents and evolves the picks over time, and a Telegram gateway makes it easy to interact with day to day.</p>
   </section>

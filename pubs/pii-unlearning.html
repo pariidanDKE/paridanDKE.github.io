@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Machine Unlearning of PII in LLMs — Dan Parii</title>
+  <title>Machine Unlearning of PII in LLMs · Dan Parii</title>
   <meta name="description" content="Machine Unlearning of PII in LLMs (SURF, NLLP 2025 · ACL Anthology). A publication by Dan Parii." />
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -32,16 +32,16 @@
 
   <section class="abstract">
     <h2><span class="comment">// abstract</span></h2>
-    <p>Pretrained LLMs are trained on massive web-scale datasets, which often contain personally identifiable information (PII), raising serious legal and ethical concerns. A key research challenge is how to effectively unlearn PII without degrading the model&#x27;s utility or leaving implicit knowledge that can be exploited. This study proposes UnlearnPII, a benchmark designed to evaluate the effectiveness of PII unlearning methods, addressing limitations in existing metrics that overlook implicit knowledge and assess all tokens equally. Our benchmark focuses on detecting PII leakage, testing model robustness through obfuscated prompts and jailbreak attacks over different domains, while measuring utility and retention quality. To advance practical solutions, we propose a new PII unlearning method — PERMUtok. By applying token-level noise, we achieve 1) simplified integration into existing workflows, 2) improved retention and output quality, while maintaining unlearning effectiveness. The code is open-source and publicly available.</p>
+    <p>Pretrained LLMs are trained on massive web-scale datasets, which often contain personally identifiable information (PII), raising serious legal and ethical concerns. A key research challenge is how to effectively unlearn PII without degrading the model&#x27;s utility or leaving implicit knowledge that can be exploited. This study proposes UnlearnPII, a benchmark designed to evaluate the effectiveness of PII unlearning methods, addressing limitations in existing metrics that overlook implicit knowledge and assess all tokens equally. Our benchmark focuses on detecting PII leakage, testing model robustness through obfuscated prompts and jailbreak attacks over different domains, while measuring utility and retention quality. To advance practical solutions, we propose a new PII unlearning method, PERMUtok. By applying token-level noise, we achieve 1) simplified integration into existing workflows, 2) improved retention and output quality, while maintaining unlearning effectiveness. The code is open-source and publicly available.</p>
   </section>
 
   <section class="learned">
     <h2><span class="comment">// key results</span></h2>
     <ul>
-      <li>PERMUtok — a model-agnostic extension of PERMU that injects noise at the token level via simple token substitution, so the perturbed unlearning data can be precomputed and reused for any model, with no changes to the model&#x27;s forward function.</li>
-      <li>UnlearnPII — a benchmark of 225 synthetic profiles across 16 PII categories in general, banking and medical domains, with fine-grained metrics probing both explicit and implicit leakage under DirectQA, ParaphrasedQA, OneHopQA, InvertedQA and extraction attacks.</li>
+      <li>PERMUtok, a model-agnostic extension of PERMU that injects noise at the token level via simple token substitution, so the perturbed unlearning data can be precomputed and reused for any model, with no changes to the model&#x27;s forward function.</li>
+      <li>UnlearnPII, a benchmark of 225 synthetic profiles across 16 PII categories in general, banking and medical domains, with fine-grained metrics probing both explicit and implicit leakage under DirectQA, ParaphrasedQA, OneHopQA, InvertedQA and extraction attacks.</li>
       <li>PERMUtok drives Direct-attack leakage below 1% ESR while preserving &gt;95% retention of non-target PII, and beats the original PERMU at removing implicit knowledge (4.5% vs 12.3% inverted-attack ESR); general-benchmark scores (MMLU-Pro, GSM8K, ARC) drop under 1%.</li>
-      <li>Semantically rich PII (occupation, disease, treatment) is the hardest to erase, and larger models unlearn more cleanly — Qwen2.5-32B reached 0% Direct ESR.</li>
+      <li>Semantically rich PII (occupation, disease, treatment) is the hardest to erase, and larger models unlearn more cleanly: Qwen2.5-32B reached 0% Direct ESR.</li>
     </ul>
   </section>
 

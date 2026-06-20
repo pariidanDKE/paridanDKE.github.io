@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gemma Guide — Dan Parii</title>
+  <title>Gemma Guide · Dan Parii</title>
   <meta name="description" content="Gemma Guide: creative multimodal tool-use. A project by Dan Parii." />
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -35,7 +35,7 @@
   </figure>
 
   <section class="prose">
-    <p>Gemma Guide is a blind-first multimodal navigation assistant, built for a Gemma hackathon around one idea: an agent is only as capable as the tools you hand it. Gemma can reason about space but can&#x27;t estimate depth — so I wired in Google&#x27;s TIPS vision model as a tool.</p>
+    <p>Gemma Guide is a blind-first multimodal navigation assistant, built for a Gemma hackathon around one idea: an agent is only as capable as the tools you hand it. Gemma can reason about space but can&#x27;t estimate depth, so I wired in Google&#x27;s TIPS vision model as a tool.</p>
     <p>The agent “points” at an object with a bounding box, then pulls that object&#x27;s depth straight from TIPS. Because TIPS also ships a segmentation head, I could pinpoint the exact thing Gemma was pointing at, not just roughly where it was. The result is a guidance agent that understands where things are in a scene, not only what they are.</p>
   </section>
 
@@ -53,7 +53,7 @@
   <section class="learned">
     <h2><span class="comment">// what I learned</span></h2>
     <ul>
-      <li>An agent&#x27;s ceiling is its toolset — handing Gemma a depth + segmentation tool unlocked spatial reasoning it fundamentally couldn&#x27;t do alone.</li>
+      <li>An agent&#x27;s ceiling is its toolset: handing Gemma a depth + segmentation tool unlocked spatial reasoning it fundamentally couldn&#x27;t do alone.</li>
       <li>Bounding-box “pointing” plus a segmentation head is a clean way to ground a language model to a precise object rather than a vague region.</li>
       <li>Designing blind-first forces real clarity: the system has to know where things are, not just be able to name them.</li>
     </ul>

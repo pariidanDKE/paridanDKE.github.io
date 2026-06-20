@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TuneMap — Dan Parii</title>
+  <title>TuneMap · Dan Parii</title>
   <meta name="description" content="TuneMap: knowledge graphs + adapter serving. A project by Dan Parii." />
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -36,7 +36,7 @@
 
   <section class="prose">
     <p>TuneMap turns my Apple Music library into a queryable knowledge graph. Ask a question in plain English and get a natural-language answer plus an interactive visualisation of the exact subgraph behind it. It started as a way to explore my own music taste and ended up teaching me how agents can lean on knowledge graphs.</p>
-    <p>It&#x27;s a multi-agent setup: a main agent handles the conversation, and when a query needs translating into a graph query it calls a specialist “composer” agent — a model I fine-tuned for natural-language-to-Cypher and serve as a hot-swappable LoRA adapter in vLLM. So the system only spins up the specialist when it actually needs it, instead of paying for it on every call.</p>
+    <p>It&#x27;s a multi-agent setup: a main agent handles the conversation, and when a query needs translating into a graph query it calls a specialist “composer” agent, a model I fine-tuned for natural-language-to-Cypher and serve as a hot-swappable LoRA adapter in vLLM. So the system only spins up the specialist when it actually needs it, instead of paying for it on every call.</p>
   </section>
 
   <section class="gallery">
