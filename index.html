@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dan Pari — Projects</title>
+  <meta name="description" content="Projects and publications in applied ML, LLMs, and AI agents by Dan Pari." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="name">Dan Pari</h1>
+      <p class="tagline">
+        I build things at the edge of applied ML and AI agents — published models,
+        multi-agent systems, and privacy-first tooling. Below is a tour of what I've
+        made and written.
+      </p>
+      <nav class="links">
+        <a href="https://github.com/paridanDKE">GitHub</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-head">
+            <h3>Gemma Guide</h3>
+            <span class="beat">Creative multimodal tool-use</span>
+          </div>
+          <p>
+            Built for a Gemma hackathon, around the idea that an agent is only as
+            capable as the tools you hand it. Gemma can reason about space but can't
+            estimate depth, so I wired in Google's TIPS vision model as a tool: the
+            agent "points" at an object with a bounding box, then pulls that object's
+            depth straight from TIPS. Since TIPS also has a segmentation head, I could
+            pinpoint the exact thing Gemma was pointing at, not just roughly where it
+            was. The result is a guidance agent that understands where things are in a
+            scene, not only what they are.
+          </p>
+          <ul class="tags">
+            <li>Multimodal AI</li>
+            <li>Vision-Language Models</li>
+            <li>AI Agents</li>
+            <li>Python</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>RoLLM <span class="sub">(RoLlama3.2-1B)</span></h3>
+            <span class="beat">A published model + low-level optimization</span>
+          </div>
+          <p>
+            My first published model, now live under OpenLLM-Ro, the first open-source
+            initiative for Romanian LLMs. It's a 4-bit, 1B Llama taught Romanian
+            through a constrained continual-pretraining run, with both the model and
+            the recipe built for efficient on-device inference. The recipe is an
+            optimized QLoRA run on Unsloth, where I went deep on the levers that
+            actually move a small model: sequence packing, LoRA rank, and data mix.
+            The experiment I cared about most was whether higher educational-quality
+            data makes a better model — and it did: language understanding improved
+            across the board, while reasoning- and knowledge-heavy tasks gained the
+            most from the filtered data. Getting there meant subclassing large parts
+            of the Transformers library to shape the exact training loop I wanted, and
+            profiling CUDA kernels with Nsight to keep it fast.
+          </p>
+          <ul class="tags">
+            <li>Continual Pretraining</li>
+            <li>QLoRA / PEFT</li>
+            <li>Hugging Face Transformers</li>
+            <li>CUDA</li>
+            <li>LLM Evaluation</li>
+            <li>PyTorch</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>Hermes Curator</h3>
+            <span class="beat">Production agent orchestration + safety</span>
+          </div>
+          <p>
+            A system for reading, documenting, and evolving data from the web, built
+            on the Hermes harness (an open-source agent framework aimed at local SLMs,
+            with a lot of built-in hooks and guardrails). The principle is the
+            interesting part: an orchestrator agent owns the high-level loop, anything
+            potentially unsafe gets routed to tightly guarded subagents, and a
+            dedicated subagent files everything into a persistent, interlinked markdown
+            knowledge base using Hermes' llm-wiki skill (Karpathy's LLM Wiki pattern).
+            That last bit means the curated knowledge compounds over time and stays
+            cross-referenced, instead of being re-derived from scratch the way plain
+            RAG would. The subagent split doubles as a security boundary and a
+            context-engineering trick, keeping the main agent's context clean and
+            focused. I built it out as a personal YouTube curator: a cron job scrapes
+            my own recommendations and watch history with Playwright (YouTube offers no
+            API for that personal data), the orchestrator documents and evolves the
+            picks over time, and a Telegram gateway makes it easy to interact with day
+            to day.
+          </p>
+          <ul class="tags">
+            <li>Multi-Agent Systems</li>
+            <li>Agent Orchestration</li>
+            <li>Local LLMs / SLMs</li>
+            <li>Playwright</li>
+            <li>Context Engineering</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>TuneMap</h3>
+            <span class="beat">Knowledge graphs + adapter serving</span>
+          </div>
+          <p>
+            Started as a way to explore my own music taste and ended up teaching me how
+            agents can lean on knowledge graphs. It's a multi-agent setup: a main agent
+            handles the conversation, and when a query needs translating into a graph
+            query it calls a specialist "composer" agent — a model I fine-tuned for
+            natural-language-to-Cypher and serve as a hot-swappable LoRA adapter in
+            vLLM. So the system only spins up the specialist when it actually needs it,
+            instead of paying for it on every call.
+          </p>
+          <ul class="tags">
+            <li>Knowledge Graphs</li>
+            <li>Multi-Agent Systems</li>
+            <li>vLLM</li>
+            <li>Fine-Tuning</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>ChatTrace</h3>
+            <span class="beat">Local, privacy-preserving RAG</span>
+          </div>
+          <p>
+            My oldest project, and where I first learned to wire multiple models
+            together with LangGraph. It's a RAG system over my own WhatsApp history,
+            but the constraint that makes it interesting is that it runs entirely
+            locally on a Mac through Ollama, so nothing private ever leaves the
+            machine. It lets me trace and search old conversations while keeping the
+            data fully private by design.
+          </p>
+          <ul class="tags">
+            <li>Retrieval-Augmented Generation (RAG)</li>
+            <li>LangGraph</li>
+            <li>Ollama</li>
+            <li>Vector Search</li>
+            <li>Python</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>Claude Conversations</h3>
+            <span class="beat">Dev tooling + cost-aware product thinking</span>
+          </div>
+          <p>
+            A Claude Code plugin that scratches my own itch: picking up relevant
+            conversations from previous days without scrolling forever. It uses smart
+            compaction to generate a title and description for each past conversation,
+            and I built it around keeping that summarization cheap and fast, so it
+            stays a pleasant tool rather than a costly one. A small project, but a real
+            exercise in balancing product quality against time and cost.
+          </p>
+          <ul class="tags">
+            <li>Prompt Engineering</li>
+            <li>LLM Summarization</li>
+            <li>Developer Tools</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2 class="section-title">Publications</h2>
+      <div class="pub-list">
+        <article class="pub">
+          <h3>Machine Unlearning of PII in LLMs</h3>
+          <span class="venue">NLLP 2025 · peer-reviewed</span>
+          <p>
+            Techniques for making a language model forget specific private information
+            it had memorized, evaluated on a synthetic PII dataset I generated myself.
+          </p>
+        </article>
+        <article class="pub">
+          <h3>Survival Analysis for Printhead Lifespan Prediction</h3>
+          <span class="venue">Canon · applied research</span>
+          <p>
+            Applied machine learning on real historical printer data, using survival
+            analysis to predict component lifespan accurately enough to publish.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Dan Pari · Built as a static site on GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
