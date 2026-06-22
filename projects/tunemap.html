@@ -60,8 +60,8 @@
     <h2><span class="comment">// what I learned</span></h2>
     <ul>
       <li>Agents can lean on knowledge graphs: translate natural language to Cypher with a specialist model instead of forcing one model to do everything.</li>
-      <li>Serving the fine-tuned composer as a hot-swappable LoRA adapter in vLLM means you only pay for the specialist when a query actually needs it.</li>
-      <li>Showing the exact subgraph behind an answer turns a black-box response into something you can inspect and trust.</li>
+      <li>The way vLLM plugs in adapters per-request means you can design genuinely complex systems mixing specialist and generalist models, all at low latency.</li>
+      <li>I fine-tuned the model on vast.ai (my own compute was busy): cheap, but a hassle to set everything up on a fresh disk.</li>
     </ul>
   </section>
 
