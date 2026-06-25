@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TuneMap · Dan Parii</title>
-  <meta name="description" content="TuneMap: knowledge graphs + adapter serving. A project by Dan Parii." />
+  <meta name="description" content="TuneMap: fine-tuning + adapter serving. A project by Dan Parii." />
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="TuneMap · Dan Parii" />
-  <meta property="og:description" content="TuneMap: knowledge graphs + adapter serving. A project by Dan Parii." />
+  <meta property="og:description" content="TuneMap: fine-tuning + adapter serving. A project by Dan Parii." />
   <meta property="og:image" content="https://pariidandke.github.io/assets/og.png" />
   <meta property="og:url" content="https://pariidandke.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TuneMap · Dan Parii" />
-  <meta name="twitter:description" content="TuneMap: knowledge graphs + adapter serving. A project by Dan Parii." />
+  <meta name="twitter:description" content="TuneMap: fine-tuning + adapter serving. A project by Dan Parii." />
   <meta name="twitter:image" content="https://pariidandke.github.io/assets/og.png" />
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -28,13 +28,15 @@
 
   <header class="proj-head">
     <h1>TuneMap</h1>
-    <p class="proj-beat"># knowledge graphs + adapter serving</p>
-    
+    <p class="proj-beat"># fine-tuning + adapter serving</p>
+
     <ul class="tags">
-      <li>Knowledge Graphs</li>
-      <li>Multi-Agent Systems</li>
-      <li>vLLM</li>
       <li>Fine-Tuning</li>
+      <li>LoRA / PEFT</li>
+      <li>vLLM</li>
+      <li>Text-to-Cypher</li>
+      <li>LLM Evaluation</li>
+      <li>Knowledge Graphs</li>
     </ul>
     <div class="links"><a class="btn" href="https://github.com/pariidanDKE/TuneMap">&gt; view on github</a></div>
   </header>
@@ -45,8 +47,9 @@
   </figure>
 
   <section class="prose">
-    <p>TuneMap turns my Apple Music library into a queryable knowledge graph. Ask a question in plain English and get a natural-language answer plus an interactive visualisation of the exact subgraph behind it. It started as a way to explore my own music taste and ended up teaching me how agents can lean on knowledge graphs.</p>
-    <p>It&#x27;s a multi-agent setup: a main agent handles the conversation, and when a query needs translating into a graph query it calls a specialist “composer” agent, a model I fine-tuned for natural-language-to-Cypher and serve as a hot-swappable LoRA adapter in vLLM. So the system only spins up the specialist when it actually needs it, instead of paying for it on every call.</p>
+    <p>TuneMap turns my Apple Music library into a queryable knowledge graph: ask a question in plain English and get a natural-language answer plus an interactive visualisation of the exact subgraph behind it. It started as a way to explore my own music taste, and became a deep-dive into fine-tuning and serving a task-specific model.</p>
+    <p>The core is a LoRA adapter I fine-tuned for natural-language-to-Cypher translation, hot-swapped per-request in vLLM so the specialist only loads when a query actually needs it. To know whether the fine-tune actually worked, I generated an evaluation dataset for the text-to-Cypher task and benchmarked the model&#x27;s performance on it.</p>
+    <p>The adapter is deployed as a specialist subagent, called on demand by a main conversational agent that handles the dialogue.</p>
   </section>
 
   <section class="gallery">
